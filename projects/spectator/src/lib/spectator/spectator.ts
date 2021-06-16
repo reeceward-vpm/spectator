@@ -13,6 +13,10 @@ export class Spectator<C> extends DomSpectator<C> {
     super(fixture, debugElement, instance, element);
   }
 
+  public static fromFixture<C>(fixture: ComponentFixture<C>): Spectator<C> {
+    return new Spectator(fixture, fixture.debugElement, fixture.componentInstance, fixture.nativeElement);
+  }
+
   public get component(): C {
     return this.instance;
   }
